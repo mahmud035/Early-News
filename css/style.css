@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
 *,
 *::before,
 *::after {
@@ -46,4 +48,33 @@ select {
   background: #454f6b;
 }
 
+/* Custom CSS Property */
+:root {
+  --bg-body: #f6f6f6;
+  --bg-card: #fff;
+  --category-text: #858585;
+  --category-text-hover: #5d5fef;
+}
+
+body {
+  background-color: var(--bg-body);
+  font-family: 'Poppins', sans-serif;
+}
+
 /* Common CSS Classes */
+
+/* Display Category Item */
+#category-container {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 1rem;
+  justify-content: space-between;
+  padding-left: 0;
+}
+
+#category-container li {
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--category-text);
+}
