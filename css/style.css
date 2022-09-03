@@ -63,6 +63,32 @@ body {
 
 /* Common CSS Classes */
 
+/** Spinner */
+
+#spinner {
+  display: none;
+  /* pointer-events: none; */
+  width: 3.5em;
+  height: 3.5em;
+  border: 0.4em solid transparent;
+  border-color: #02ab68;
+  border-top-color: #d8f1eb;
+  border-radius: 50%;
+  animation: loading-spinner 1s linear infinite;
+  display: flex;
+  justify-content: center;
+
+  position: absolute;
+  top: 40%;
+  left: 50%;
+}
+
+@keyframes loading-spinner {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 /* Display Category Item */
 #category-section {
   display: grid;
@@ -95,4 +121,28 @@ body {
   display: flex;
   gap: 12px;
   font-size: 14px;
+}
+
+.see-details {
+  color: var(--category-text-hover);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.see-details:hover {
+  transform: translateX(5px) scale(1.1);
+}
+
+/* Media  */
+@media (min-width: 992px) {
+  .news-details-card {
+    width: 70%;
+  }
+}
+
+@media (max-width: 991px) {
+  .rating {
+    display: none;
+  }
 }
