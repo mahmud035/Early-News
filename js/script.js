@@ -47,7 +47,7 @@ const loadEachCategory = async (id, name) => {
 
     const res = await fetch(url);
     const data = await res.json();
-    console.log(name);
+
     displayEachCategory(data.data, name);
   } catch (error) {
     console.log(error.message);
@@ -157,9 +157,9 @@ const categoryResultFound = (data, name) => {
   text.classList.add('mb-0');
 
   const resultCount = data.length;
-  console.log(resultCount);
+  // console.log(resultCount);
 
-  console.log(data, name);
+  // console.log(data, name);
 
   if (resultCount > 0) {
     resultFoundDiv.textContent = '';

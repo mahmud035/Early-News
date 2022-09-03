@@ -111,6 +111,8 @@ body {
   align-items: center;
   justify-content: space-between;
   padding-top: 2.5rem;
+  /* flex-wrap: wrap;
+  gap: 1rem; */
 }
 .card-others-info .author-info img {
   width: 40px;
@@ -148,6 +150,10 @@ body {
   .card {
     max-width: 95%;
     margin-inline: auto;
+  }
+
+  .card-others-info {
+    font-size: 12px;
   }
 }
 
