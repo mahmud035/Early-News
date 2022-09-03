@@ -222,8 +222,8 @@ const displayNewsDetails = async (news) => {
               <h5 class="card-title py-3">${title}</h5>
               <p class="card-text text-muted">
                 ${
-                  details.length > 3000
-                    ? details.slice(0, 3000) + '...'
+                  details.length > 4000
+                    ? details.slice(0, 4000) + '...'
                     : details
                 }
               </p>
