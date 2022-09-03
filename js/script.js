@@ -80,7 +80,8 @@ const displayEachCategory = async (data) => {
       'p-3',
       'border-0',
       'rounded',
-      'shadow-sm'
+      'shadow-sm',
+      'w-100'
     );
     newsCard.innerHTML = `
         <div class="row gx-3">
@@ -137,6 +138,7 @@ const displayEachCategory = async (data) => {
 
     newsCardContainer.appendChild(newsCard);
   });
+  categoryResultFound(data); //* check how many result found
 
   // Hide Spinner
   toggleSpinner('none');
@@ -146,6 +148,27 @@ const getDate = (published_date) => {
   const date = new Date(published_date);
   const sortDate = date.toString().slice(4, 15);
   return sortDate;
+};
+
+const categoryResultFound = (data) => {
+  const resultFoundDiv = document.getElementById('category-result-found');
+  const text = document.createElement('h6');
+  text.classList.add('mb-0');
+
+  const resultCount = data.length;
+  console.log(resultCount);
+
+  if (resultCount > 0) {
+    resultFoundDiv.textContent = '';
+    text.innerHTML = `<span>${resultCount}</span> results for category <span>Entertainment</span>`;
+
+    resultFoundDiv.appendChild(text);
+  } else {
+    resultFoundDiv.textContent = '';
+    text.innerHTML = `Sorry, we couldn't find any results`;
+
+    resultFoundDiv.appendChild(text);
+  }
 };
 
 const loadNewsDetails = async (id) => {
