@@ -64,15 +64,14 @@ body {
 /* Common CSS Classes */
 
 /* Display Category Item */
-#category-container {
+#category-section {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   gap: 1rem;
   justify-content: space-between;
-  padding-left: 0;
 }
 
-#category-container li {
+#category-section div li {
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
