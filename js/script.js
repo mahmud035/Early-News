@@ -86,20 +86,20 @@ const displayEachCategory = async (data, name) => {
     );
     newsCard.innerHTML = `
         <div class="row gx-3">
-          <div class="col-md-4">
+          <div class="col-md-4 col-lg-3 col-xxl-2">
             <img
               src="${thumbnail_url}"
-              class="img-fluid rounded w-100 h-100"
+              class="img-fluid rounded  category-card-img"
               alt="..."
             />
           </div>
-          <div class="col-md-8">
-            <div class="card-body pb-0">
+          <div class="col-md-8 col-lg-9 col-xxl-10">
+            <div class="card-body pb-0 d-flex flex-column justify-content-between h-100">
                 <h5 class="card-title">${title}</h5>
                 <p class="card-text text-muted ">
                     ${
-                      details.length > 150
-                        ? details.slice(0, 150) + '...'
+                      details.length > 300
+                        ? details.slice(0, 300) + '...'
                         : details
                     }
                 </p>
@@ -163,7 +163,7 @@ const categoryResultFound = (data, name) => {
 
   if (resultCount > 0) {
     resultFoundDiv.textContent = '';
-    text.innerHTML = `<span>${resultCount}</span> results for category <span>${name}</span>`;
+    text.innerHTML = `<span>${resultCount}</span> results for category <span>"${name}"</span>`;
 
     resultFoundDiv.appendChild(text);
   } else {
@@ -222,8 +222,8 @@ const displayNewsDetails = async (news) => {
               <h5 class="card-title py-3">${title}</h5>
               <p class="card-text text-muted">
                 ${
-                  details.length > 2000
-                    ? details.slice(0, 2000) + '...'
+                  details.length > 3000
+                    ? details.slice(0, 3000) + '...'
                     : details
                 }
               </p>
