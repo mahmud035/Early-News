@@ -18,7 +18,7 @@ const loadAllCategory = async () => {
   }
 };
 
-const displayAllCategories = async (e) => {
+const displayAllCategories = async () => {
   const allCategories = await loadAllCategory();
   const categorySection = document.getElementById('category-section');
 
@@ -27,7 +27,7 @@ const displayAllCategories = async (e) => {
     const categoryContainer = document.createElement('div');
 
     categoryContainer.innerHTML = `
-    <li class="item" onclick="loadEachCategory('${category.category_id}')"> ${category.category_name} </li>`;
+    <li class="item" onclick="loadEachCategory('${category.category_id}', '${category.category_name}')"> ${category.category_name} </li>`;
 
     categorySection.appendChild(categoryContainer);
   });
@@ -38,7 +38,7 @@ const displayAllCategories = async (e) => {
 
 displayAllCategories();
 
-const loadEachCategory = async (id) => {
+const loadEachCategory = async (id, name) => {
   try {
     // display spinner
     toggleSpinner('block');
@@ -47,13 +47,14 @@ const loadEachCategory = async (id) => {
 
     const res = await fetch(url);
     const data = await res.json();
-    displayEachCategory(data.data);
+    console.log(name);
+    displayEachCategory(data.data, name);
   } catch (error) {
     console.log(error.message);
   }
 };
 
-const displayEachCategory = async (data) => {
+const displayEachCategory = async (data, name) => {
   //* sort the array of objects by the total_view values
   const sortedArray = data.sort((a, b) => {
     return b.total_view - a.total_view;
@@ -138,7 +139,7 @@ const displayEachCategory = async (data) => {
 
     newsCardContainer.appendChild(newsCard);
   });
-  categoryResultFound(data); //* check how many result found
+  categoryResultFound(data, name); //* check how many result found
 
   // Hide Spinner
   toggleSpinner('none');
@@ -150,7 +151,7 @@ const getDate = (published_date) => {
   return sortDate;
 };
 
-const categoryResultFound = (data) => {
+const categoryResultFound = (data, name) => {
   const resultFoundDiv = document.getElementById('category-result-found');
   const text = document.createElement('h6');
   text.classList.add('mb-0');
@@ -158,9 +159,11 @@ const categoryResultFound = (data) => {
   const resultCount = data.length;
   console.log(resultCount);
 
+  console.log(data, name);
+
   if (resultCount > 0) {
     resultFoundDiv.textContent = '';
-    text.innerHTML = `<span>${resultCount}</span> results for category <span>Entertainment</span>`;
+    text.innerHTML = `<span>${resultCount}</span> results for category <span>${name}</span>`;
 
     resultFoundDiv.appendChild(text);
   } else {
