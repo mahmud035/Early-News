@@ -47,7 +47,17 @@ const displayEachCategory = async (data) => {
   });
   // console.log(sortedArray);
 
+  const newsCardContainer = document.getElementById('news-card-container');
+
   sortedArray.forEach((news) => {
     console.log(news);
+
+    const newsCard = document.createElement('div');
+    newsCard.classList.add('card', 'mb-3');
+    newsCard.innerHTML = `
+     
+    
+    
+      `;
   });
 };

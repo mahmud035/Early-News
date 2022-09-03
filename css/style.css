@@ -77,3 +77,21 @@ body {
   cursor: pointer;
   color: var(--category-text);
 }
+
+/* Category Card Container  */
+.card-others-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.card-others-info .author-info img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.author-info {
+  display: flex;
+  gap: 12px;
+  font-size: 14px;
+}
